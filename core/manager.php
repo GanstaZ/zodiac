@@ -59,11 +59,11 @@ class manager
 	}
 
 	/**
-	* Get all available zodiac
+	* Get all available zodiac types
 	*
 	* @return array
 	*/
-	public function get_zodiac(): array
+	public function get_zodiac_types(): array
 	{
 		return array_keys(self::$zodiac) ?? [];
 	}

@@ -13,7 +13,7 @@ namespace ganstaz\zodiac\event;
 use phpbb\config\config;
 use phpbb\language\language;
 use phpbb\template\template;
-use dls\web\core\blocks\manager;
+use ganstaz\zodiac\core\manager;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -36,10 +36,10 @@ class listener implements EventSubscriberInterface
 	/**
 	* Constructor
 	*
-	* @param config		$config		Config object
-	* @param language	$language	Language object
-	* @param template	$template	Template object
-	* @param manager	$manager	Blocks manager object
+	* @param config   $config   Config object
+	* @param language $language	Language object
+	* @param template $template	Template object
+	* @param manager  $manager  Zodiac manager object
 	*/
 	public function __construct(
 		config $config,
@@ -75,17 +75,19 @@ class listener implements EventSubscriberInterface
 	{
 		$u_bday = $event['member']['user_birthday'];
 
-		if ($this->config['allow_birthdays'] && $u_bday && $this->config['dls_zodiac'])
+		if ($this->config['allow_birthdays'] && $u_bday && $this->config['gzo_zodiac'])
 		{
-			$this->language->add_lang(['zodiac', 'astro'], 'dls/web');
+			$this->language->add_lang(['zodiac', 'astro'], 'ganstaz/zodiac');
 
 			// Format date
 			$u_bday = str_replace(' ', '', $u_bday);
 			$date = \DateTime::createFromFormat('d-m-Y', $u_bday);
 
-			foreach ($this->plugin->get('zodiac') as $service)
+			foreach ($this->manager->get_zodiac_types() as $zodiac_type)
 			{
-				foreach ($service->load($date->format($service->get_format())) as $row)
+				$zodiac = $this->manager->get($zodiac_type);
+
+				foreach ($zodiac->load($date->format($zodiac->get_format())) as $row)
 				{
 					$this->template->assign_block_vars('zodiac_data', [
 						'stem'	  => $row['stem'],
