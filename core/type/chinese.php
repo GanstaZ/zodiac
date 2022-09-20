@@ -43,22 +43,6 @@ class chinese extends base
 	/**
 	* {@inheritdoc}
 	*/
-	public function get_name(): string
-	{
-		return 'chinese';
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_type(): string
-	{
-		return 'zodiac';
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
 	public function load(string $year): array
 	{
 		// Twelve earthly branches

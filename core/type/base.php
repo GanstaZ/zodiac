@@ -15,6 +15,9 @@ namespace ganstaz\zodiac\core\type;
 */
 abstract class base implements zodiac_interface
 {
+	/** @var string zodiac name */
+	protected $name;
+
 	/** @var string zodiac date format */
 	protected $format;
 
@@ -65,9 +68,27 @@ abstract class base implements zodiac_interface
 	}
 
 	/**
+	* Sets the name of the zodiac
+	*
+	* @param string	$name Name of the zodiac
+	*/
+	public function set_name($name)
+	{
+		$this->name = $name;
+	}
+
+	/**
 	* {@inheritdoc}
 	*/
-	public function get_format()
+	public function get_name(): string
+	{
+		return $this->name;
+	}
+
+	/**
+	* {@inheritdoc}
+	*/
+	public function get_format(): string
 	{
 		return $this->format;
 	}

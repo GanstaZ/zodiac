@@ -16,7 +16,14 @@ namespace ganstaz\zodiac\core\type;
 interface zodiac_interface
 {
 	/**
-	* Load the zodiac data (tropical, sidereal, chinese)
+	* Returns the name of the zodiac
+	*
+	* @return string Name of the zodiac
+	*/
+	public function get_name();
+
+	/**
+	* Load the zodiac data (tropical, sidereal, chinese, myanmar)
 	*
 	* @param string $format Format date string to (m-d, Y & so on)
 	* @return array

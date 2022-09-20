@@ -10,6 +10,8 @@
 
 namespace ganstaz\zodiac\core\type;
 
+use ganstaz\zodiac\core\helper;
+
 /**
 * GZO Web: Myanmar zodiac
 */
@@ -26,22 +28,6 @@ class myanmar extends base
 	public function __construct(helper $helper)
 	{
 		$this->helper = $helper;
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_name(): string
-	{
-		return 'myanmar';
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_type(): string
-	{
-		return 'zodiac';
 	}
 
 	/**

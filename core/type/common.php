@@ -10,10 +10,12 @@
 
 namespace ganstaz\zodiac\core\type;
 
+use ganstaz\zodiac\core\helper;
+
 /**
 * GZO Web: Common zodiac
 */
-class zodiac extends base
+class common extends base
 {
 	/** @var helper */
 	protected $helper;
@@ -26,22 +28,6 @@ class zodiac extends base
 	public function __construct(helper $helper)
 	{
 		$this->helper = $helper;
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_name(): string
-	{
-		return 'zodiac';
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_type(): string
-	{
-		return 'zodiac';
 	}
 
 	/**
