@@ -8,7 +8,7 @@
 *
 */
 
-namespace gzo\web\migrations\v24;
+namespace ganstaz\zodiac\migrations;
 
 class m3_zodiac_config extends \phpbb\db\migration\migration
 {
@@ -17,7 +17,7 @@ class m3_zodiac_config extends \phpbb\db\migration\migration
 	*/
 	static public function depends_on()
 	{
-		return ['\ganstaz\zodiac\migrations\v24\m1_zodiac'];
+		return ['\ganstaz\zodiac\migrations\m1_zodiac'];
 	}
 
 	/**

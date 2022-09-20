@@ -8,7 +8,7 @@
 *
 */
 
-namespace ganstaz\zodiac\migrations\v24;
+namespace ganstaz\zodiac\migrations;
 
 class m1_zodiac extends \phpbb\db\migration\migration
 {
