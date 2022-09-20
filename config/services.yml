@@ -1,0 +1,85 @@
+imports:
+    - { resource: blocks.yml }
+    - { resource: plugins.yml }
+    - { resource: tables.yml }
+
+services:
+    dls.web.helper:
+        class: dls\web\core\helper
+        arguments:
+            - '@cache'
+            - '@config'
+            - '@dbal.conn'
+            - '@user'
+            - '%dls.web.tables.page%'
+            - '%core.php_ext%'
+
+    dls.web.time:
+        class: dls\web\core\dls_time
+        arguments:
+            - '@language'
+
+    dls.web.listener:
+        class: dls\web\event\listener
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@language'
+            - '@request'
+            - '@template'
+            - '@dls.web.helper'
+            - '@dls.web.plugin.manager'
+            - '@?dls.web.block.manager'
+        tags:
+            - { name: event.listener }
+
+    dls.web.extension:
+        class: dls\web\core\twig\extension
+        arguments:
+            - '@template.twig.environment'
+            - '@dls.web.block.event'
+            - '@group_helper'
+        tags:
+            - { name: twig.extension }
+
+# ----- Controllers -----
+    dls.web.controller.base:
+        abstract: true
+        arguments:
+            - '@controller.helper'
+            - '@language'
+            - '@dls.web.block.manager'
+
+    dls.web.admin.controller:
+        class: dls\web\controller\admin_controller
+        arguments:
+            - '@config'
+            - '@dbal.conn'
+            - '@language'
+            - '@request'
+            - '@template'
+
+    dls.web.admin.block.controller:
+        class: dls\web\controller\admin_block_controller
+        arguments:
+            - '@service_container'
+            - '@dbal.conn'
+            - '@language'
+            - '@request'
+            - '@template'
+            - '@dls.web.block.manager'
+
+    dls.web.admin.page.controller:
+        class: dls\web\controller\admin_page_controller
+        arguments:
+            - '@cache'
+            - '@dbal.conn'
+            - '@language'
+            - '@request'
+            - '@template'
+            - '%dls.web.tables.page%'
+
+    dls.web.news.controller:
+        class: dls\web\controller\news_controller
+        shared: false
+        parent: dls.web.controller.base

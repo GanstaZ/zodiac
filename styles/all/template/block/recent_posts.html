@@ -1,0 +1,14 @@
+{% embed '@dls_web/includes/block-item.html' %}
+	{% from '@dls_web/macros/tags.html' import icon, url %}
+
+	{% block block_heading %}{{ lang('RECENT_POSTS') }}{% endblock %}
+
+	{% block block_content %}
+		<ul class="t-no-style">
+		{% for recent in recent_posts %}
+			<li>{{ icon('icon', 'file-o fa-fw icon-red', null, lang('IN_TOPIC')) ~ url({'href': recent.link}, recent.title) }}</li>
+		{% endfor %}
+		</ul>
+	{% endblock %}
+
+{% endembed %}

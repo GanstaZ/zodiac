@@ -1,0 +1,10 @@
+{% extends 'layout/app-base.html' %}
+
+{% block mid_content %}
+	{% if article %}
+		{% for news in article %}
+			{{ include('includes/news-item.html') }}
+		{% endfor %}
+	{% endif %}
+{% endblock %}
+
