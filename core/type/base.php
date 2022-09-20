@@ -1,21 +1,19 @@
 <?php
 /**
 *
-* DLS Web. An extension for the phpBB Forum Software package.
+* GZO Web. An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2021, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace dls\web\core\plugins\astro\zodiac;
-
-use dls\web\core\plugins\plugin_interface;
+namespace ganstaz\zodiac\core\type;
 
 /**
-* DLS Web zodiac base class
+* GZO Web: Zodiac base class
 */
-abstract class base implements plugin_interface, zodiac_interface
+abstract class base implements zodiac_interface
 {
 	/** @var string zodiac date format */
 	protected $format;

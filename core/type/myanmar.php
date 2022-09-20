@@ -1,17 +1,17 @@
 <?php
 /**
 *
-* DLS Web. An extension for the phpBB Forum Software package.
+* GZO Web. An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2021, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace dls\web\core\plugins\astro\zodiac;
+namespace ganstaz\zodiac\core\type;
 
 /**
-* DLS Web Myanmar zodiac
+* GZO Web: Myanmar zodiac
 */
 class myanmar extends base
 {
