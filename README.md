@@ -1,13 +1,10 @@
-## DLS Z-Lab (Web Core)
-Private web project for DLS Web (CMS) phpBB extension. In development!
+## GZO Web (Zodiac)
+GZO Web (Zodiac) is an addon for GZO Web.
 
 ## Installation
-Download/clone and move the repository into the folder phpbb_root/ext/dls/zlab
+Download/clone and move the repository into the folder phpbb_root/ext/ganstaz/zodiac
 
-### Activate
-Go to admin panel -> tab customise -> Manage extensions -> enable DLS Z-Lab (Web Core)
+### Enable / Disable
+Go to admin panel / tab customise / Manage extensions -> enable / disable GZO Web (Zodiac)
 
-### Disable
-Go to admin panel -> tab customise -> Manage extensions -> disable DLS Z-Lab (Web Core)
-
-[![Build Status](https://github.com/GanstaZ/zlab/workflows/Tests/badge.svg)](https://github.com/GanstaZ/zlab)
+[![Build Status](https://github.com/GanstaZ/zlab/workflows/Tests/badge.svg)](https://github.com/GanstaZ/zodiac)
