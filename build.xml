@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="DLS Zlab Build Script" description="Builds an extension.zip from a git repository" default="all">
-	<property name="vendor-name" value="dls" />
-	<property name="extension-name" value="zlab" />
+<project name="GanstaZ Zodiac Build Script" description="Builds an extension.zip from a git repository" default="all">
+	<property name="vendor-name" value="ganstaz" />
+	<property name="extension-name" value="zodiac" />
 	<!--
 	Only set this to "true" if you have dependencies in the composer.json,
 	otherwise use "false".
