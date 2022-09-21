@@ -52,6 +52,14 @@ class zodiac extends base
 	/**
 	* {@inheritdoc}
 	*/
+	public function namespace()
+	{
+		return '@ganstaz_zodiac/';
+	}
+
+	/**
+	* {@inheritdoc}
+	*/
 	public function load(string $username): void
 	{
 		$member = $this->get_user_data($username);
