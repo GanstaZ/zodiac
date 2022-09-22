@@ -63,11 +63,13 @@
 
 					        {% if zodiac.extra %}
 						        {% set extra, symbol = 'MOON', 'moon-o' %}
+
 						        {% if zodiac.name === 'CHINESE' %}
 							        {% set extra, symbol = 'SEASON', 'leaf' %}
 						        {% elseif zodiac.name === 'MYANMAR' %}
 							        {% set extra, symbol = 'WEEKDAY', 'calendar' %}
 						        {% endif %}
+
 						        <li class="c-zodiac-item c-stat-item">
 							        <strong>{{ icon('icon', symbol ~ ' fa-fw', null, lang(extra) ~ lang('COLON')) }}</strong> {{ lang(zodiac.extra) }}
 						        </li>
