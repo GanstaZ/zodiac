@@ -1,19 +1,21 @@
 <?php
 /**
 *
-* DLS Web. An extension for the phpBB Forum Software package.
+* GZO Web. An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2021, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace dls\web\core\plugins\astro\zodiac;
+namespace ganstaz\zodiac\core\type;
+
+use ganstaz\zodiac\core\helper;
 
 /**
-* DLS Web zodiac
+* GZO Web: Common zodiac
 */
-class zodiac extends base
+class common extends base
 {
 	/** @var helper */
 	protected $helper;
@@ -26,22 +28,6 @@ class zodiac extends base
 	public function __construct(helper $helper)
 	{
 		$this->helper = $helper;
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_name(): string
-	{
-		return 'zodiac';
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_type(): string
-	{
-		return 'zodiac';
 	}
 
 	/**

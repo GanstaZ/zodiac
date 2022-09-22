@@ -1,0 +1,15 @@
+/* GZO Web Zodiac Configurations */
+.c-gzo-f-row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.c-gzo-col-3 {
+	flex: 0 0 32%;
+	min-width: 205px;
+	margin: 5px;
+}
+
+.c-gzo-card {
+	padding-left: 10px;
+}

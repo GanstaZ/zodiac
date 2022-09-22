@@ -10,3 +10,25 @@ services:
             - '@dbal.conn'
             - '%ganstaz.web.tables.zodiac%'
             - '%ganstaz.web.tables.zodiac_dates%'
+
+    ganstaz.web.tab.zodiac:
+        class: ganstaz\zodiac\core\tabs\type\zodiac
+        shared: false
+        parent: ganstaz.web.tab.base
+        arguments:
+            - '@config'
+            - '@?ganstaz.zodiac.manager'
+        calls:
+            - [set_name, [zodiac]]
+        tags:
+            - { name: gzo.web.tab }
+
+    ganstaz.zodiac.listener:
+        class: ganstaz\zodiac\event\listener
+        arguments:
+            - '@config'
+            - '@language'
+            - '@template'
+            - '@?ganstaz.zodiac.manager'
+        tags:
+            - { name: event.listener }

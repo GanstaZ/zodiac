@@ -1,22 +1,22 @@
 <?php
 /**
 *
-* GZ Web zodiac plugin. An extension for the phpBB Forum Software package.
+* GZO Web. An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2022, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace ganstaz\wpz;
+namespace ganstaz\zodiac;
 
 /**
-* GZ Web zodiac plugin
+* GZO Web: Zodiac
 */
 class ext extends \phpbb\extension\base
 {
 	/**
-	* Enable zodiac if GZ Web is enabled
+	* Enable Zodiac if GZO Web is enabled
 	*
 	* @return bool
 	* @access public
@@ -29,7 +29,7 @@ class ext extends \phpbb\extension\base
 
 		if (!$ext_manager->is_enabled('ganstaz/web'))
 		{
-			$this->container->get('language')->add_lang('require', 'ganstaz/web');
+			$this->container->get('language')->add_lang('require', 'ganstaz/zodiac');
 			$is_enableable = false;
 		}
 

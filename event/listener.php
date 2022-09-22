@@ -13,7 +13,7 @@ namespace ganstaz\zodiac\event;
 use phpbb\config\config;
 use phpbb\language\language;
 use phpbb\template\template;
-use dls\web\core\blocks\manager;
+use ganstaz\zodiac\core\manager;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
@@ -36,10 +36,10 @@ class listener implements EventSubscriberInterface
 	/**
 	* Constructor
 	*
-	* @param config		$config		Config object
-	* @param language	$language	Language object
-	* @param template	$template	Template object
-	* @param manager	$manager	Blocks manager object
+	* @param config   $config   Config object
+	* @param language $language	Language object
+	* @param template $template	Template object
+	* @param manager  $manager  Zodiac manager object
 	*/
 	public function __construct(
 		config $config,
@@ -62,45 +62,7 @@ class listener implements EventSubscriberInterface
 	public static function getSubscribedEvents(): array
 	{
 		return [
-			'core.memberlist_view_profile' => 'view_profile_stats',
+			// 'core.memberlist_view_profile' => 'view_profile_stats',
 		];
-	}
-
-	/**
-	* Event core.memberlist_view_profile
-	*
-	* @param \phpbb\event\data $event The event object
-	*/
-	public function view_profile_stats($event): void
-	{
-		$u_bday = $event['member']['user_birthday'];
-
-		if ($this->config['allow_birthdays'] && $u_bday && $this->config['dls_zodiac'])
-		{
-			$this->language->add_lang(['zodiac', 'astro'], 'dls/web');
-
-			// Format date
-			$u_bday = str_replace(' ', '', $u_bday);
-			$date = \DateTime::createFromFormat('d-m-Y', $u_bday);
-
-			foreach ($this->plugin->get('zodiac') as $service)
-			{
-				foreach ($service->load($date->format($service->get_format())) as $row)
-				{
-					$this->template->assign_block_vars('zodiac_data', [
-						'stem'	  => $row['stem'],
-						'sign'	  => $row['sign'],
-						'symbol'  => $row['symbol'],
-						'plant'	  => $row['plant'],
-						'gem'	  => $row['gem'],
-						'ruler'	  => $row['ruler'],
-						'extra'	  => $row['extra'],
-						'dir'	  => $row['dir'],
-						'element' => $row['element'],
-						'name'	  => $row['name'],
-					]);
-				}
-			}
-		}
 	}
 }

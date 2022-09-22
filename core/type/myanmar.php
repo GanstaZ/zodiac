@@ -1,17 +1,19 @@
 <?php
 /**
 *
-* DLS Web. An extension for the phpBB Forum Software package.
+* GZO Web. An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2021, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace dls\web\core\plugins\astro\zodiac;
+namespace ganstaz\zodiac\core\type;
+
+use ganstaz\zodiac\core\helper;
 
 /**
-* DLS Web Myanmar zodiac
+* GZO Web: Myanmar zodiac
 */
 class myanmar extends base
 {
@@ -26,22 +28,6 @@ class myanmar extends base
 	public function __construct(helper $helper)
 	{
 		$this->helper = $helper;
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_name(): string
-	{
-		return 'myanmar';
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_type(): string
-	{
-		return 'zodiac';
 	}
 
 	/**

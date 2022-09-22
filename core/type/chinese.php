@@ -1,19 +1,19 @@
 <?php
 /**
 *
-* DLS Web. An extension for the phpBB Forum Software package.
+* GZO Web. An extension for the phpBB Forum Software package.
 *
 * @copyright (c) 2021, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace dls\web\core\plugins\astro\zodiac;
+namespace ganstaz\zodiac\core\type;
 
 use phpbb\db\driver\driver_interface;
 
 /**
-* DLS Web Chinese zodiac
+* GZO Web: Chinese zodiac
 */
 class chinese extends base
 {
@@ -38,22 +38,6 @@ class chinese extends base
 		$this->db = $db;
 		$this->zodiac_stems = $zodiac_stems;
 		$this->zodiac_symbols = $zodiac_symbols;
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_name(): string
-	{
-		return 'chinese';
-	}
-
-	/**
-	* {@inheritdoc}
-	*/
-	public function get_type(): string
-	{
-		return 'zodiac';
 	}
 
 	/**
