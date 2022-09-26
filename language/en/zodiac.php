@@ -19,7 +19,6 @@ if (empty($lang) || !is_array($lang))
 }
 
 $lang = array_merge($lang, [
-	'ZODIAC'   => 'Zodiac',
 	'TROPICAL' => 'Tropical',
 	'SIDEREAL' => 'Sidereal',
 	'NATIVE'   => 'Native',

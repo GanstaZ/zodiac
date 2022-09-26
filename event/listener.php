@@ -3,55 +3,34 @@
 *
 * GZO Web. An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2021, GanstaZ, http://www.github.com/GanstaZ/
+* @copyright (c) 2022, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
 namespace ganstaz\zodiac\event;
 
-use phpbb\config\config;
 use phpbb\language\language;
-use phpbb\template\template;
-use ganstaz\zodiac\core\manager;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
-* GZO Web: Event listener
+* GZO Zodiac: Event listener
 */
 class listener implements EventSubscriberInterface
 {
-	/** @var config */
-	protected $config;
-
 	/** @var language */
 	protected $language;
-
-	/** @var template */
-	protected $template;
-
-	/** @var manager */
-	protected $manager;
 
 	/**
 	* Constructor
 	*
-	* @param config   $config   Config object
 	* @param language $language	Language object
-	* @param template $template	Template object
-	* @param manager  $manager  Zodiac manager object
 	*/
 	public function __construct(
-		config $config,
 		language $language,
-		template $template,
-		manager $manager = null
 	)
 	{
-		$this->config   = $config;
 		$this->language = $language;
-		$this->template = $template;
-		$this->manager  = $manager;
 	}
 
 	/**
@@ -62,7 +41,18 @@ class listener implements EventSubscriberInterface
 	public static function getSubscribedEvents(): array
 	{
 		return [
-			// 'core.memberlist_view_profile' => 'view_profile_stats',
+			'core.user_setup' => 'add_language',
 		];
+	}
+
+	/**
+	* Event core.user_setup
+	*
+	* @param \phpbb\event\data $event The event object
+	*/
+	public function add_language($event): void
+	{
+		// Load a single language file from ganstaz/zodiac/language/en/common.php
+		$this->language->add_lang('common', 'ganstaz/zodiac');
 	}
 }
