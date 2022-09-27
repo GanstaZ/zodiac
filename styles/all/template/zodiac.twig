@@ -1,4 +1,4 @@
-{% extends 'layout/profile-base.twig' %}
+{% extends '@ganstaz_web/layout/profile-base.twig' %}
 
 {% block mid_content %}
 
@@ -6,7 +6,7 @@
 
     {% EVENT ganstaz_web_zodiac_before %}
 
-    {% from 'macros/tags.html' import icon, url %}
+    {% from '@ganstaz_web/macros/tags.twig' import icon, url %}
 
 	{% if zodiac_data %}
 
@@ -14,7 +14,7 @@
 
 	        {% for zodiac in zodiac_data %}
 
-				<div class="c-gzo-card c-gzo-card-body t-gzo-border t-gzo-mb c-gzo-col-3">
+				<div class="c-gzo-card c-gzo-card-body c-gzo-border c-gzo-mb c-gzo-col-3">
 
 					{% set element = lang(zodiac.element) %}
 
