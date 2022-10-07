@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* DLS Web. An extension for the phpBB Forum Software package.
+* GZO Web. An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2021, GanstaZ, http://www.github.com/GanstaZ/
+* @copyright (c) 2022, GanstaZ, http://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -148,7 +148,7 @@ $lang = array_merge($lang, [
 	'RUBY'		 => 'Ruby',
 	'OPAL'		 => 'Opal',
 	'ONYX'		 => 'Onyx',
-	'GARNET'	 => 'Garner',
+	'GARNET'	 => 'Garnet',
 	'QUARTZ'	 => 'Quartz',
 	'CORAL'		 => 'Coral',
 	'AMBER'		 => 'Amber',
