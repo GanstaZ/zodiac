@@ -3,7 +3,7 @@
 *
 * GZO Web. An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, http://www.github.com/GanstaZ/
+* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -26,9 +26,7 @@ class listener implements EventSubscriberInterface
 	*
 	* @param language $language	Language object
 	*/
-	public function __construct(
-		language $language,
-	)
+	public function __construct(language $language)
 	{
 		$this->language = $language;
 	}
