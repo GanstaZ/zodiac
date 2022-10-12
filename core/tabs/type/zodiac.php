@@ -39,11 +39,12 @@ class zodiac extends base
 		$controller,
 		$language,
 		$template,
+		$user,
 		$config,
 		$manager
 	)
 	{
-		parent::__construct($auth, $db, $dispatcher, $controller, $language, $template);
+		parent::__construct($auth, $db, $dispatcher, $controller, $language, $template, $user);
 
 		$this->config  = $config;
 		$this->manager = $manager;
