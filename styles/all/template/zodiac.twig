@@ -4,96 +4,96 @@
 
 	<h2 class="memberlist-title">{{ PAGE_TITLE }}</h2>
 
-    {% EVENT ganstaz_web_zodiac_before %}
+	{% EVENT ganstaz_web_zodiac_before %}
 
-    {% from '@ganstaz_web/macros/tags.twig' import icon, url %}
+	{% from '@ganstaz_web/macros/tags.twig' import icon, url %}
 
 	{% if zodiac_data %}
 
-        <div class="c-gzo-flex c-gzo-container-fluid c-gzo-flex-wrap">
+		<div class="c-gzo-flex c-gzo-container-fluid c-gzo-flex-wrap">
 
-	        {% for zodiac in zodiac_data %}
+			{% for zodiac in zodiac_data %}
 
 				<div class="c-gzo-card c-gzo-card-body c-gzo-border c-gzo-mb c-gzo-col-3">
 
 					{% set element = lang(zodiac.element) %}
 
-		            {% if zodiac.stem %}
-			            {% set element = lang('STEM', zodiac.stem) ~ ' ' ~ element %}
-		            {% endif %}
+					{% if zodiac.stem %}
+						{% set element = lang('STEM', zodiac.stem) ~ ' ' ~ element %}
+					{% endif %}
 
-					<h3>{{ lang(zodiac.name) }}	- {{ (element ? element ~ ' ') ~ lang(zodiac.sign) }}</h3>
+					<h3>{{ lang(zodiac.name) }} - {{ (element ? element ~ ' ') ~ lang(zodiac.sign) }}</h3>
 
-				    <div class="c-gzo-card-body">
-				        <dl class="left-box details profile-details">
+					<div class="c-gzo-card-body">
+						<dl class="left-box details profile-details">
 
-					        <dt class="c-gzo-dtzw">{{ icon('icon', 'star fa-fw', null, lang('SIGN') ~ lang('COLON')) }}</dt>
+							<dt class="c-gzo-dtzw">{{ icon('icon', 'star fa-fw', null, lang('SIGN') ~ lang('COLON')) }}</dt>
 							<dd class="c-gzo-ddz">{{ lang(zodiac.sign) }}</dd>
 
-					        {% if element %}
+							{% if element %}
 								<dt class="c-gzo-dtzw">{{ icon('icon', 'bolt fa-fw', null, lang('ELEMENT') ~ lang('COLON')) }}</dt>
 								<dd class="c-gzo-ddz">
-							        {{ element }}
-						        </dd>
-					        {% endif %}
+									{{ element }}
+								</dd>
+							{% endif %}
 
-					        {% if zodiac.symbol %}
-						        <dt class="c-gzo-dtzw">{{ icon('icon', 'plus fa-fw', null, lang('SYMBOL') ~ lang('COLON')) }}</dt>
+							{% if zodiac.symbol %}
+								<dt class="c-gzo-dtzw">{{ icon('icon', 'plus fa-fw', null, lang('SYMBOL') ~ lang('COLON')) }}</dt>
 								<dd class="c-gzo-ddz">
-							        {{ lang(zodiac.symbol) }}
-						        </dd>
-					        {% endif %}
+									{{ lang(zodiac.symbol) }}
+								</dd>
+							{% endif %}
 
-					        {% if zodiac.plant %}
-						        <dt class="c-gzo-dtzw">{{ icon('icon', 'tree fa-fw', null, lang('PLANT') ~ lang('COLON')) }}</dt>
+							{% if zodiac.plant %}
+								<dt class="c-gzo-dtzw">{{ icon('icon', 'tree fa-fw', null, lang('PLANT') ~ lang('COLON')) }}</dt>
 								<dd class="c-gzo-ddz">
-							        {{ lang(zodiac.plant) }}
-						        </dd>
-					        {% endif %}
+									{{ lang(zodiac.plant) }}
+								</dd>
+							{% endif %}
 
-					        {% if zodiac.gem %}
-						        <dt class="c-gzo-dtzw">{{ icon('icon', 'diamond fa-fw', null, lang('STONE') ~ lang('COLON')) }}</dt>
+							{% if zodiac.gem %}
+								<dt class="c-gzo-dtzw">{{ icon('icon', 'diamond fa-fw', null, lang('STONE') ~ lang('COLON')) }}</dt>
 								<dd class="c-gzo-ddz">
-							        {{ lang(zodiac.gem) }}
-						        </dd>
-					        {% endif %}
+									{{ lang(zodiac.gem) }}
+								</dd>
+							{% endif %}
 
-					        {% if zodiac.ruler %}
-						        <dt class="c-gzo-dtzw">{{ icon('icon', 'globe fa-fw', null, lang('RULER') ~ lang('COLON')) }}</dt>
+							{% if zodiac.ruler %}
+								<dt class="c-gzo-dtzw">{{ icon('icon', 'globe fa-fw', null, lang('RULER') ~ lang('COLON')) }}</dt>
 								<dd class="c-gzo-ddz">
-							        {{ lang(zodiac.ruler) }}
-						        </dd>
-					        {% endif %}
+									{{ lang(zodiac.ruler) }}
+								</dd>
+							{% endif %}
 
-					        {% if zodiac.extra %}
-						        {% set extra, symbol = 'MOON', 'moon-o' %}
+							{% if zodiac.extra %}
+								{% set extra, symbol = 'MOON', 'moon-o' %}
 
-						        {% if zodiac.name === 'CHINESE' %}
-							        {% set extra, symbol = 'SEASON', 'leaf' %}
-						        {% elseif zodiac.name === 'MYANMAR' %}
-							        {% set extra, symbol = 'WEEKDAY', 'calendar' %}
-						        {% endif %}
+								{% if zodiac.name === 'CHINESE' %}
+									{% set extra, symbol = 'SEASON', 'leaf' %}
+								{% elseif zodiac.name === 'MYANMAR' %}
+									{% set extra, symbol = 'WEEKDAY', 'calendar' %}
+								{% endif %}
 
-						        <dt class="c-gzo-dtzw">{{ icon('icon', symbol ~ ' fa-fw', null, lang(extra) ~ lang('COLON')) }}</dt>
+								<dt class="c-gzo-dtzw">{{ icon('icon', symbol ~ ' fa-fw', null, lang(extra) ~ lang('COLON')) }}</dt>
 								<dd class="c-gzo-ddz">
-							        {{ lang(zodiac.extra) }}
-						        </dd>
-					        {% endif %}
+									{{ lang(zodiac.extra) }}
+								</dd>
+							{% endif %}
 
-					        {% if zodiac.dir %}
-						        <dt class="c-gzo-dtzw">{{ icon('icon', 'compass fa-fw', null, lang('DIRECTION') ~ lang('COLON')) }}</dt>
+							{% if zodiac.dir %}
+								<dt class="c-gzo-dtzw">{{ icon('icon', 'compass fa-fw', null, lang('DIRECTION') ~ lang('COLON')) }}</dt>
 								<dd class="c-gzo-ddz">
-							        {{ lang(zodiac.dir) }}
-						        </dd>
-					        {% endif %}
-				        </dl>
-				    </div>
+									{{ lang(zodiac.dir) }}
+								</dd>
+							{% endif %}
+						</dl>
+					</div>
 				</div>
 
-	        {% endfor %}
+			{% endfor %}
 
-        </div>
-    {% endif %}
+		</div>
+	{% endif %}
 
 {% EVENT ganstaz_web_zodiac_after %}
 
