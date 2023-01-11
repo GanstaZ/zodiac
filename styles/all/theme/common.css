@@ -1,15 +1,15 @@
 /* GZO Web Zodiac Configurations */
-.c-gzo-col-3 {
+.gzo-col-3 {
 	flex: 1;
 	min-width: 265px;
 	margin: 5px;
 }
 
-dl.details dt.c-gzo-dtzw {
+dl.details dt.gzo-dtzw {
 	width: auto;
 	/* color: #536482; */
 }
 
-dl.details dd.c-gzo-ddz {
+dl.details dd.gzo-ddz {
 	width: auto;
 }
