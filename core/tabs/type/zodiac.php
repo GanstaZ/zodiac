@@ -61,6 +61,14 @@ class zodiac extends base
 	/**
 	* {@inheritdoc}
 	*/
+	public function icon(): string
+	{
+		return 'sun-o';
+	}
+
+	/**
+	* {@inheritdoc}
+	*/
 	public function load(string $username): void
 	{
 		$member = $this->get_user_data($username);
