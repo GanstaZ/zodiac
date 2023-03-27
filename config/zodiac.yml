@@ -1,45 +1,45 @@
 services:
-    ganstaz.zodiac.collection:
+    ganstaz.zodiac_collection:
         class: phpbb\di\service_collection
         arguments:
             - '@service_container'
         tags:
-            - { name: service_collection, tag: gzo.web.zodiac }
+            - { name: service_collection, tag: gzo.zodiac.type }
 
     ganstaz.zodiac.manager:
-        class: ganstaz\zodiac\core\manager
+        class: ganstaz\zodiac\src\manager
         arguments:
-            - '@ganstaz.zodiac.collection'
+            - '@ganstaz.zodiac_collection'
 
 # Zodiac types
     ganstaz.zodiac.common:
-        class: ganstaz\zodiac\core\type\common
+        class: ganstaz\zodiac\src\type\common
         arguments:
             - '@ganstaz.zodiac.helper'
         calls:
             - [set_name, ['zodiac']]
             - [set_format, [m-d]]
         tags:
-            - { name: gzo.web.zodiac }
+            - { name: gzo.zodiac.type }
 
     ganstaz.zodiac.chinese:
-        class: ganstaz\zodiac\core\type\chinese
+        class: ganstaz\zodiac\src\type\chinese
         arguments:
             - '@dbal.conn'
-            - '%ganstaz.web.tables.zodiac_symbols%'
-            - '%ganstaz.web.tables.heavenly_stems%'
+            - '%ganstaz.zodiac.symbols_table%'
+            - '%ganstaz.zodiac.heavenly_stems_table%'
         calls:
             - [set_name, ['chinese']]
             - [set_format, [Y]]
         tags:
-            - { name: gzo.web.zodiac }
+            - { name: gzo.zodiac.type }
 
     ganstaz.zodiac.myanmar:
-        class: ganstaz\zodiac\core\type\myanmar
+        class: ganstaz\zodiac\src\type\myanmar
         arguments:
             - '@ganstaz.zodiac.helper'
         calls:
             - [set_name, ['myanmar']]
             - [set_format, [l]]
         tags:
-            - { name: gzo.web.zodiac }
+            - { name: gzo.zodiac.type }

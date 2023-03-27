@@ -4,27 +4,27 @@ imports:
 
 services:
     ganstaz.zodiac.helper:
-        class: ganstaz\zodiac\core\helper
+        class: ganstaz\zodiac\src\helper
         arguments:
             - '@cache'
             - '@dbal.conn'
-            - '%ganstaz.web.tables.zodiac%'
-            - '%ganstaz.web.tables.zodiac_dates%'
+            - '%ganstaz.zodiac.table%'
+            - '%ganstaz.zodiac.dates_table%'
 
-    ganstaz.web.tab.zodiac:
-        class: ganstaz\zodiac\core\tabs\type\zodiac
+    ganstaz.gzo.tab.zodiac:
+        class: ganstaz\zodiac\src\tabs\type\zodiac
         shared: false
-        parent: ganstaz.web.tab.base
+        parent: ganstaz.gzo.tab.base
         arguments:
             - '@config'
             - '@?ganstaz.zodiac.manager'
         calls:
             - [set_name, [zodiac]]
         tags:
-            - { name: gzo.web.tab, order: 26 }
+            - { name: gzo.tab.type, order: 26 }
 
     ganstaz.zodiac.listener:
-        class: ganstaz\zodiac\event\listener
+        class: ganstaz\zodiac\src\subscriber\subscribers
         arguments:
             - '@language'
         tags:
