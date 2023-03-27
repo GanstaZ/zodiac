@@ -1,36 +1,24 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace ganstaz\zodiac\core\tabs\type;
+namespace ganstaz\zodiac\src\tabs\type;
 
 use phpbb\config\config;
-use ganstaz\zodiac\core\manager;
-use ganstaz\web\core\tabs\type\base;
+use ganstaz\zodiac\src\manager;
+use ganstaz\gzo\src\tabs\type\base;
 
 /**
-* GZO Web: Member zodiac tab
+* Member zodiac tab
 */
 class zodiac extends base
 {
-	/** @var config */
-	protected $config;
-
-	/** @var manager */
-	protected $manager;
-
-	/**
-	* Constructor
-	*
-	* @param config  $config  Config object
-	* @param manager $manager Zodiac manager object
-	*/
 	public function __construct
 	(
 		$auth,
@@ -40,14 +28,11 @@ class zodiac extends base
 		$language,
 		$template,
 		$user,
-		$config,
-		$manager
+		private readonly config $config,
+		private readonly manager $manager
 	)
 	{
 		parent::__construct($auth, $db, $dispatcher, $controller, $language, $template, $user);
-
-		$this->config  = $config;
-		$this->manager = $manager;
 	}
 
 	/**

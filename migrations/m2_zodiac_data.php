@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -15,18 +15,15 @@ class m2_zodiac_data extends \phpbb\db\migration\migration
 	/**
 	* {@inheritdoc}
 	*/
-	static public function depends_on()
+	public static function depends_on(): array
 	{
 		return ['\ganstaz\zodiac\migrations\m1_zodiac'];
 	}
 
 	/**
 	* Add the initial data in the database
-	*
-	* @return array Array of table data
-	* @access public
 	*/
-	public function update_data()
+	public function update_data(): array
 	{
 		return [
 			// Add zodiac data
@@ -40,7 +37,7 @@ class m2_zodiac_data extends \phpbb\db\migration\migration
 	/**
 	* Custom function to add data
 	*/
-	public function zodiac_data()
+	public function zodiac_data(): void
 	{
 		if ($this->db_tools->sql_table_exists($this->table_prefix . 'gzo_zodiac'))
 		{
@@ -102,7 +99,7 @@ class m2_zodiac_data extends \phpbb\db\migration\migration
 	/**
 	* Custom function to add data
 	*/
-	public function zodiac_dates()
+	public function zodiac_dates(): void
 	{
 		if ($this->db_tools->sql_table_exists($this->table_prefix . 'gzo_zodiac_dates'))
 		{
@@ -177,7 +174,7 @@ class m2_zodiac_data extends \phpbb\db\migration\migration
 	/**
 	* Custom function to add data
 	*/
-	public function zodiac_symbols()
+	public function zodiac_symbols(): void
 	{
 		if ($this->db_tools->sql_table_exists($this->table_prefix . 'gzo_zodiac_symbols'))
 		{
@@ -196,7 +193,7 @@ class m2_zodiac_data extends \phpbb\db\migration\migration
 	/**
 	* Custom function to add data
 	*/
-	public function zodiac_heavenly_stems()
+	public function zodiac_heavenly_stems(): void
 	{
 		if ($this->db_tools->sql_table_exists($this->table_prefix . 'gzo_zodiac_heavenly_stems'))
 		{

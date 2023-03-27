@@ -1,12 +1,12 @@
-{% extends '@ganstaz_web/layout/profile-base.twig' %}
+{% extends '@ganstaz_gzo/layout/profile-base.twig' %}
 
 {% block mid_content %}
 
 	<h2 class="memberlist-title">{{ PAGE_TITLE }}</h2>
 
-	{% EVENT ganstaz_web_zodiac_before %}
+	{% EVENT ganstaz_zodiac_before %}
 
-	{% from '@ganstaz_web/macros/tags.twig' import icon, url %}
+	{% from '@ganstaz_gzo/macros/tags.twig' import icon, url %}
 
 	{% if zodiac_data %}
 
@@ -95,6 +95,6 @@
 		</div>
 	{% endif %}
 
-{% EVENT ganstaz_web_zodiac_after %}
+{% EVENT ganstaz_zodiac_after %}
 
 {% endblock %}

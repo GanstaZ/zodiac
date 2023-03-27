@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -22,11 +22,8 @@ class m1_zodiac extends \phpbb\db\migration\migration
 
 	/**
 	* Check condition exists for a given table name
-	*
-	* @param $name Name of the table
-	* @return bool
 	*/
-	public function check($name)
+	public function check(string $name): bool
 	{
 		return $this->db_tools->sql_table_exists($this->table_prefix . 'gzo_' . $name);
 	}
@@ -34,18 +31,15 @@ class m1_zodiac extends \phpbb\db\migration\migration
 	/**
 	* {@inheritdoc}
 	*/
-	static public function depends_on()
+	public static function depends_on(): array
 	{
-		return ['\ganstaz\web\migrations\v24\m1_main'];
+		return ['\ganstaz\gzo\migrations\v24\m1_main'];
 	}
 
 	/**
 	* Add the table schemas to the database:
-	*
-	* @return array Array of table schema
-	* @access public
 	*/
-	public function update_schema()
+	public function update_schema(): array
 	{
 		return [
 			'add_tables' => [
@@ -103,11 +97,8 @@ class m1_zodiac extends \phpbb\db\migration\migration
 
 	/**
 	* Drop the schemas from the database
-	*
-	* @return array Array of table schema
-	* @access public
 	*/
-	public function revert_schema()
+	public function revert_schema(): array
 	{
 		return [
 			'drop_tables' => [
