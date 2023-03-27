@@ -1,43 +1,28 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace ganstaz\zodiac\core\type;
+namespace ganstaz\zodiac\src\type;
 
 use phpbb\db\driver\driver_interface;
 
 /**
-* GZO Web: Chinese zodiac
+* Chinese zodiac
 */
 class chinese extends base
 {
-	/** @var driver_interface */
-	protected $db;
-
-	/** @var zodiac symbols table */
-	protected $zodiac_symbols;
-
-	/** @var zodiac heavenly stems table */
-	protected $zodiac_stems;
-
-	/**
-	* Constructor
-	*
-	* @param driver_interface $db			  Database object
-	* @param string			  $zodiac_symbols Zodiac symbols table
-	* @param string			  $zodiac_stems	  Zodiac heavenly stems table
-	*/
-	public function __construct(driver_interface $db, $zodiac_symbols, $zodiac_stems)
+	public function __construct(
+		private readonly driver_interface $db,
+		private readonly string $zodiac_symbols,
+		private readonly string $zodiac_stems
+	)
 	{
-		$this->db = $db;
-		$this->zodiac_stems = $zodiac_stems;
-		$this->zodiac_symbols = $zodiac_symbols;
 	}
 
 	/**
@@ -62,10 +47,7 @@ class chinese extends base
 	}
 
 	/**
-	* Get stem
-	*
-	* @param int $year Year is equivalent to one of the sexagenary cycle number
-	* @return array $row
+	* Get stem [$year Year is equivalent to one of the sexagenary cycle number]
 	*/
 	public function get_stem(int $year): ?array
 	{
@@ -93,9 +75,6 @@ class chinese extends base
 	* For any year before 1 AD, the equivalent sexagenary year can be found by adding 2 to the Gregorian year number (in BC),
 	*	  dividing it by 60, and subtracting the remainder from 60. See example below.
 	* 1 AD, 2 AD and 3 AD correspond respectively to the 58th, 59th and 60th years of the sexagenary cycle.
-	*
-	* @param string $year Year to calculate cycle
-	* @return float
 	*/
 	public function get_sexagenary_cycle_number(string $year): float
 	{
@@ -109,9 +88,6 @@ class chinese extends base
 
 	/**
 	* Sexagenary cycle formula
-	*
-	* @param int $year Year to calculate cycle
-	* @return float
 	*/
 	protected function cycle_formula(int $year): float
 	{

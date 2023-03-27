@@ -1,61 +1,36 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace ganstaz\zodiac\core;
+namespace ganstaz\zodiac\src;
 
 use phpbb\cache\service as cache;
 use phpbb\db\driver\driver_interface;
 
-/**
-* GZO Web: zodiac helper class
-*/
 class helper
 {
-	/** @var cache */
-	protected $cache;
-
-	/** @var driver_interface */
-	protected $db;
-
-	/** @var zodiac table */
-	protected $zodiac;
-
-	/** @var zodiac dates table */
-	protected $zodiac_dates;
-
 	/** @var int type */
 	protected $type = 6;
 
-	/**
-	* Constructor
-	*
-	* @param cache			  $cache		Cache object
-	* @param driver_interface $db			Database object
-	* @param string			  $zodiac		Zodiac table
-	* @param string			  $zodiac_dates Data table
-	*/
-	public function __construct(cache $cache, driver_interface $db, $zodiac, $zodiac_dates)
+	public function __construct(
+		private readonly cache $cache,
+		private readonly driver_interface $db,
+		private readonly string $zodiac,
+		private readonly string $zodiac_dates
+	)
 	{
-		$this->cache = $cache;
-		$this->db = $db;
-		$this->zodiac = $zodiac;
-		$this->zodiac_dates = $zodiac_dates;
 	}
 
 	/**
 	* Get zodiac data
-	*
-	* @param null|int $type zodiac type
-	* @return array
 	*/
-	function zodiac_data($type = null): array
+	function zodiac_data(?int $type = null): array
 	{
 		if (($zodiac = $this->cache->get('_zodiac')) === false)
 		{
@@ -86,9 +61,6 @@ class helper
 
 	/**
 	* Filter data
-	*
-	* @param array $allowed
-	* @return array filtered data
 	*/
 	public function filter(array $allowed): array
 	{

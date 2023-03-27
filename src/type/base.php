@@ -1,31 +1,24 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
-namespace ganstaz\zodiac\core\type;
+namespace ganstaz\zodiac\src\type;
 
-/**
-* GZO Web: Zodiac base class
-*/
 abstract class base implements zodiac_interface
 {
-	/** @var string zodiac name */
-	protected $name;
+	protected string $name;
 
-	/** @var string zodiac date format */
-	protected $format;
+	protected string $format;
 
-	/** @var array zodiac types */
-	protected $types = ['ZODIAC', 'TROPICAL', 'SIDEREAL', 'NATIVE', 'CELTIC', 'CHINESE', 'MYANMAR',];
+	protected array $types = ['ZODIAC', 'TROPICAL', 'SIDEREAL', 'NATIVE', 'CELTIC', 'CHINESE', 'MYANMAR',];
 
-	/** @var array zodiac elements */
-	protected $elements = [
+	protected array $elements = [
 		1 => 'FIRE',
 		2 => 'EARTH',
 		3 => 'AIR',
@@ -35,8 +28,8 @@ abstract class base implements zodiac_interface
 		7 => 'TOTEM',
 	];
 
-	/** @var array cardinal directions */
-	protected $direction = [
+	/** cardinal directions */
+	protected array $direction = [
 		1 => 'NORTH',
 		2 => 'EAST',
 		3 => 'SOUTH',
@@ -69,10 +62,8 @@ abstract class base implements zodiac_interface
 
 	/**
 	* Sets the name of the zodiac
-	*
-	* @param string	$name Name of the zodiac
 	*/
-	public function set_name($name)
+	public function set_name(string $name): void
 	{
 		$this->name = $name;
 	}
@@ -95,10 +86,8 @@ abstract class base implements zodiac_interface
 
 	/**
 	* Sets the format of the zodiac
-	*
-	* @param string	$format Set value to the given property
 	*/
-	public function set_format($format)
+	public function set_format(string $format): void
 	{
 		$this->format = $format;
 	}
