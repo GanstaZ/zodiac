@@ -11,7 +11,7 @@ services:
         arguments:
             - '@ganstaz.zodiac_collection'
 
-# Zodiac types
+    # Zodiac types
     ganstaz.zodiac.common:
         class: ganstaz\zodiac\src\type\common
         arguments:

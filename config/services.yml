@@ -23,7 +23,7 @@ services:
         tags:
             - { name: gzo.tab.type, order: 26 }
 
-    ganstaz.zodiac.listener:
+    ganstaz.zodiac.subscribers:
         class: ganstaz\zodiac\src\subscriber\subscribers
         arguments:
             - '@language'
