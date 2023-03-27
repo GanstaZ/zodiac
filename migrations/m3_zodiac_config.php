@@ -1,9 +1,9 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
@@ -15,18 +15,15 @@ class m3_zodiac_config extends \phpbb\db\migration\migration
 	/**
 	* {@inheritdoc}
 	*/
-	static public function depends_on()
+	public static function depends_on(): array
 	{
 		return ['\ganstaz\zodiac\migrations\m1_zodiac'];
 	}
 
 	/**
 	* Add the initial data in the database
-	*
-	* @return array Array of table data
-	* @access public
 	*/
-	public function update_data()
+	public function update_data(): array
 	{
 		return [
 			// Add the config variables we want to be able to set

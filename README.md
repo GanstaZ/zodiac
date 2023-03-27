@@ -1,5 +1,5 @@
 ## GZO Zodiac
-GZO Zodiac is an extension for GZO Web.
+GZO Zodiac is an extension for GZO (CMS).
 
 ## Installation
 Download/clone and move the repository into the folder phpbb_root/ext/ganstaz/zodiac

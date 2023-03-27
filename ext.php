@@ -1,33 +1,27 @@
 <?php
 /**
 *
-* GZO Web. An extension for the phpBB Forum Software package.
+* An extension for the phpBB Forum Software package.
 *
-* @copyright (c) 2022, GanstaZ, https://www.github.com/GanstaZ/
+* @copyright (c) GanstaZ, https://www.github.com/GanstaZ/
 * @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
 namespace ganstaz\zodiac;
 
-/**
-* GZO Web: Zodiac
-*/
 class ext extends \phpbb\extension\base
 {
 	/**
-	* Enable Zodiac if GZO Web is enabled
-	*
-	* @return bool
-	* @access public
+	* Enable Zodiac if GZO is enabled
 	*/
-	public function is_enableable()
+	public function is_enableable(): bool
 	{
 		$is_enableable = true;
 
 		$ext_manager = $this->container->get('ext.manager');
 
-		if (!$ext_manager->is_enabled('ganstaz/web'))
+		if (!$ext_manager->is_enabled('ganstaz/gzo'))
 		{
 			$this->container->get('language')->add_lang('require', 'ganstaz/zodiac');
 			$is_enableable = false;
