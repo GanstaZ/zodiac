@@ -26,19 +26,19 @@ class zodiac extends base
 		$dispatcher,
 		$controller,
 		$language,
-		$template,
+		$twig,
 		$user,
 		private readonly config $config,
 		private readonly manager $manager
 	)
 	{
-		parent::__construct($auth, $db, $dispatcher, $controller, $language, $template, $user);
+		parent::__construct($auth, $db, $dispatcher, $controller, $language, $twig, $user);
 	}
 
 	/**
 	* {@inheritdoc}
 	*/
-	public function namespace()
+	public function namespace(): string
 	{
 		return '@ganstaz_zodiac/';
 	}
@@ -74,7 +74,7 @@ class zodiac extends base
 
 				foreach ($zodiac->load($date->format($zodiac->get_format())) as $row)
 				{
-					$this->template->assign_block_vars('zodiac_data', [
+					$this->twig->assign_block_vars('zodiac_data', [
 						'stem'	  => $row['stem'],
 						'sign'	  => $row['sign'],
 						'symbol'  => $row['symbol'],
